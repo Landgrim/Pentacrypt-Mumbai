@@ -1,11 +1,12 @@
-# this  makes  vpc.id which is aws_vpc.app1.id
-resource "aws_vpc" "app1" {
-  cidr_block = "10.40.0.0/16"
+provider "aws" {
+  region = "ap-south-1"
+}
 
-  tags = {
-    Name = "app1"
-    Service = "application1"
-    Owner = "Pentacrypt"
-    Planet = "Tex"
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 3.0"
+    }
   }
 }
